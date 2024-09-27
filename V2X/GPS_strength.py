@@ -1,3 +1,9 @@
+'''
+SNR and HDOP Calculation: The get_gps_quality function returns simulated values for SNR and HDOP. In a real implementation, these values would come from the vehicle’s GPS receiver.
+Threshold Checking: In the gps_signal_monitor function, if SNR is below 30 or HDOP is above 5, the system logs a warning and sends it to the HMI.
+Triggering the Warning: The trigger_gps_warning function publishes a warning to the /hmi/warnings ROS topic, which can be subscribed to by the HMI for display purposes. This ensures the driver is aware of poor GPS conditions.
+'''
+
 import rospy
 from sensor_msgs.msg import NavSatFix  # GPS data from ROS topic
 from std_msgs.msg import String
